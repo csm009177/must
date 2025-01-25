@@ -24,9 +24,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="stylesheet" href="https://example.com/button-styles.css" />
+        <style>
+          {`
+            :root {
+              --font-geist-sans: ${geistSans.variable};
+              --font-geist-mono: ${geistMono.variable};
+            }
+          `}
+        </style>
+      </head>
+      <body className="antialiased">
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <a href="/info" className="button">Info</a>
+              </li>
+              <li>
+                <a href="/portfolio" className="button">Portfolio</a>
+              </li>
+              <li>
+                <a href="/login" className="button">Login</a>
+              </li>
+              <li>
+                <a href="/board" className="button">Board</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
         {children}
       </body>
     </html>
